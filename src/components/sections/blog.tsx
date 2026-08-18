@@ -85,7 +85,7 @@ export function TrustedVisionariesSection({ id }: TrustedVisionariesSectionProps
   const cards = [...visionaries, ...visionaries];
 
   return (
-    <section id={id} className="overflow-hidden bg-background py-24 sm:py-32">
+    <section id={id} className="overflow-hidden bg-background pt-24 pb-12 sm:pt-32 sm:pb-16">
       <Container>
         <div className="max-w-2xl">
           <SectionLabel>Client perspectives</SectionLabel>

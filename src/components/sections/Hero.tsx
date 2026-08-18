@@ -73,9 +73,12 @@ export function Hero({ ready }: { ready: boolean }) {
 
       <Container className="relative">
         <motion.div style={{ y: reduced ? 0 : textY }} className="relative mt-16 sm:mt-20">
-          <h1 className="display-xl mx-auto max-w-[68rem] text-center">
+          <h1 className="mx-auto max-w-[72rem] text-center font-display text-[clamp(1.4rem,7.2vw,6.5rem)] leading-[0.94] font-medium tracking-[-0.045em]">
             {lines.map((line, i) => (
-              <span key={i} className="-mb-[0.14em] block overflow-hidden pb-[0.2em] last:mb-0">
+              <span
+                key={i}
+                className="-mb-[0.14em] block overflow-hidden pb-[0.2em] whitespace-nowrap last:mb-0"
+              >
                 <motion.span
                   className="block will-change-transform"
                   initial={{ y: "110%" }}

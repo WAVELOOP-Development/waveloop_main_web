@@ -44,7 +44,7 @@ export function Capabilities() {
           {capabilities.map((item, i) => (
             <li key={item.id} className="border-b border-border">
               <a
-                href="#contact"
+                href="/contact"
                 onMouseEnter={() => setActive(i)}
                 onMouseLeave={() => setActive(null)}
                 onFocus={() => setActive(i)}

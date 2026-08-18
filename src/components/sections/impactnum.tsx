@@ -29,7 +29,10 @@ export const ImpactNumbers = () => {
 
       <div className="grid grid-cols-2  justify-center max-w-6xl gap-4 md:grid-cols-5">
         {stats.map((stat, index) => (
-          <div key={index} className="flex flex-col items-center">
+          <div
+            key={stat.label}
+            className={`flex flex-col items-center ${index === stats.length - 1 ? "col-span-2 md:col-span-1" : ""}`}
+          >
             <div className="flex items-center">
               <NumberTicker value={stat.number} startValue={0} className="text-4xl font-bold" />
               <span className="text-4xl font-bold">{stat.suffix}</span>

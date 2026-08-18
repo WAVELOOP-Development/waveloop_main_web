@@ -17,7 +17,7 @@ export function CTA() {
 
   return (
     <section
-      id="contact"
+      id="project-cta"
       ref={ref}
       className="grain relative overflow-hidden bg-ink py-24 text-[color:var(--paper)] sm:py-32"
     >
@@ -54,14 +54,14 @@ export function CTA() {
               </p>
             </Reveal>
             <div className="mt-10 flex flex-wrap items-center gap-3">
-              <PillButton href="#contact" variant="accent" size="lg">
+              <PillButton href="/contact" variant="accent" size="lg">
                 Start Your Project
               </PillButton>
               <a
                 href="mailto:hello@waveloop.dev"
                 className="group inline-flex items-center gap-2 border-b border-[color:var(--paper)]/30 pb-1 text-sm transition-colors hover:border-accent hover:text-accent"
               >
-                hello@waveloop.dev
+                info@waveloop.dev
               </a>
             </div>
           </div>

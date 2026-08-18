@@ -46,7 +46,7 @@ export function Journal() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="journal" className="hidden bg-white py-24 text-ink md:block md:py-32 lg:py-36">
+    <section id="blog" className="bg-white py-24 text-ink md:py-32 lg:py-36">
       <Container>
         <div className="mb-10 flex flex-col justify-between gap-8 sm:mb-14 lg:flex-row lg:items-end">
           <div>

@@ -38,7 +38,7 @@ export function SelectedWork() {
 
       <div ref={ref} style={{ height: `${projects.length * 90}vh` }} className="relative">
         <div className="sticky top-0 flex min-h-svh items-center">
-          <Container className="grid gap-8 py-24 lg:grid-cols-[minmax(0,220px)_minmax(0,1fr)_minmax(0,220px)] lg:items-center lg:gap-12">
+          <Container className="grid gap-6 py-8 sm:py-12 lg:grid-cols-[minmax(0,220px)_minmax(0,1fr)_minmax(0,220px)] lg:items-center lg:gap-12 lg:py-24">
             <AnimatePresence mode="wait">
               <motion.div
                 key={`meta-left-${active.id}`}

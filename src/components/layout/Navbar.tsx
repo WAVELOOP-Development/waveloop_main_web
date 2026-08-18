@@ -37,6 +37,10 @@ export function Navbar({ ready }: { ready: boolean }) {
     setMenuOpen(false);
     setCompanyOpen(false);
     setMobileCompanyOpen(false);
+    if (href.startsWith("#") && window.location.pathname !== "/") {
+      window.location.href = `/${href}`;
+      return;
+    }
     scrollToTarget(href);
   };
 
@@ -161,7 +165,7 @@ export function Navbar({ ready }: { ready: boolean }) {
           <div className="flex items-center gap-2">
             <div className="hidden md:block">
               <PillButton
-                href="#contact"
+                href="/contact"
                 size="sm"
                 arrow={false}
                 className={
@@ -181,7 +185,7 @@ export function Navbar({ ready }: { ready: boolean }) {
               className={`grid size-11 place-items-center rounded-full border transition-colors md:hidden ${
                 scrolled
                   ? "border-border-strong text-ink hover:bg-ink hover:text-[color:var(--paper)]"
-                  : "border-[color:var(--paper)]/35 text-[color:var(--paper)] hover:bg-[color:var(--paper)] hover:text-ink"
+                  : "border-ink/25 text-ink hover:bg-ink hover:text-[color:var(--paper)]"
               }`}
             >
               <Menu className="size-4" aria-hidden="true" />
@@ -293,7 +297,7 @@ export function Navbar({ ready }: { ready: boolean }) {
               <p className="max-w-xs text-sm text-[color:var(--paper)]/60">
                 Empowering businesses with innovative solutions and cutting-edge technology.
               </p>
-              <PillButton href="#contact" variant="accent">
+              <PillButton href="/contact" variant="accent">
                 Start Your Project
               </PillButton>
             </div>

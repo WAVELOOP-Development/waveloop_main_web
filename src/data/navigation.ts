@@ -12,7 +12,7 @@ export const footerLinks = {
   quickLinks: [
     { label: "Home", href: "#top" },
     { label: "About Us", href: "#company" },
-    { label: "Contact", href: "#contact" },
+    { label: "Contact", href: "/contact" },
     { label: "Blog", href: "#blog" },
     { label: "Privacy Policy", href: "#contact" },
   ],
@@ -26,8 +26,6 @@ export const footerLinks = {
 };
 
 export const socials = [
-  { label: "Instagram", href: "#contact" },
-  { label: "LinkedIn", href: "#contact" },
-  { label: "GitHub", href: "#contact" },
-  { label: "Dribbble", href: "#contact" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/waveloop-dev" },
+  { label: "Email", href: "mailto:hello@waveloop.dev" },
 ];

@@ -1,5 +1,7 @@
 "use client";
 
+import type { MouseEvent } from "react";
+
 import { footerLinks, socials } from "@/data/navigation";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/motion/Reveal";
@@ -8,6 +10,15 @@ import { scrollToTarget } from "@/components/motion/SmoothScroll";
 
 export function Footer() {
   const year = 2026;
+  const navigate = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!href.startsWith("#")) return;
+    event.preventDefault();
+    if (window.location.pathname !== "/") {
+      window.location.href = `/${href}`;
+      return;
+    }
+    scrollToTarget(href);
+  };
 
   return (
     <footer className="grain relative overflow-hidden bg-ink pt-20 text-[color:var(--paper)] sm:pt-28">
@@ -18,9 +29,13 @@ export function Footer() {
 
         <div className="mt-16 grid gap-12 border-t border-[color:var(--paper)]/15 pt-12 sm:grid-cols-2 lg:grid-cols-4">
           <Reveal className="sm:col-span-2 lg:col-span-1">
-            <span className="font-display text-2xl font-semibold tracking-[-0.05em]">
-              Wave<span className="text-accent">loop.</span>
-            </span>
+            <img
+              src="/logo.png"
+              alt="Waveloop"
+              width={191}
+              height={30}
+              className="h-[30px] w-auto object-contain"
+            />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-[color:var(--paper)]/55">
               Empowering businesses with innovative solutions and cutting-edge technology.
             </p>
@@ -31,10 +46,8 @@ export function Footer() {
                   <li key={social.label}>
                     <a
                       href={social.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        scrollToTarget(social.href);
-                      }}
+                      target={social.href.startsWith("http") ? "_blank" : undefined}
+                      rel={social.href.startsWith("http") ? "noreferrer" : undefined}
                       className="inline-flex rounded-full border border-[color:var(--paper)]/22 px-4 py-2 text-xs transition-colors hover:border-accent hover:text-accent"
                     >
                       {social.label}
@@ -52,10 +65,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToTarget(link.href);
-                    }}
+                    onClick={(event) => navigate(event, link.href)}
                     className="text-sm text-[color:var(--paper)]/60 transition-colors hover:text-accent"
                   >
                     {link.label}
@@ -72,10 +82,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToTarget(link.href);
-                    }}
+                    onClick={(event) => navigate(event, link.href)}
                     className="text-sm text-[color:var(--paper)]/60 transition-colors hover:text-accent"
                   >
                     {link.label}
