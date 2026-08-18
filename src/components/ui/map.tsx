@@ -84,7 +84,7 @@ function getDocumentTheme(): Theme | null {
   const root = document.documentElement;
   if (root.classList.contains("dark")) return "dark";
   if (root.classList.contains("light")) return "light";
-  const dataTheme = root.dataset.theme;
+  const dataTheme = root.dataset["theme"];
   if (dataTheme === "dark" || dataTheme === "light") return dataTheme;
   return null;
 }
@@ -1994,8 +1994,10 @@ function MapClusterLayer<P extends GeoJSON.GeoJsonProperties = GeoJSON.GeoJsonPr
       if (!features.length) return;
 
       const feature = features[0];
-      const clusterId = feature.properties?.cluster_id as number;
-      const pointCount = feature.properties?.point_count as number;
+      if (!feature) return;
+
+      const clusterId = feature.properties?.["cluster_id"] as number;
+      const pointCount = feature.properties?.["point_count"] as number;
       const coordinates = (feature.geometry as GeoJSON.Point).coordinates as [number, number];
 
       if (onClusterClick) {
@@ -2020,6 +2022,7 @@ function MapClusterLayer<P extends GeoJSON.GeoJsonProperties = GeoJSON.GeoJsonPr
       if (!onPointClick || !e.features?.length) return;
 
       const feature = e.features[0];
+      if (!feature) return;
       const coordinates = (feature.geometry as GeoJSON.Point).coordinates.slice() as [
         number,
         number,

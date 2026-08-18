@@ -31,12 +31,12 @@ export function NumberTicker({
   const isInView = useInView(ref, { once: true, margin: "0px" });
 
   useEffect(() => {
-    if (isInView) {
-      const timer = setTimeout(() => {
-        motionValue.set(direction === "down" ? startValue : value);
-      }, delay * 1000);
-      return () => clearTimeout(timer);
-    }
+    if (!isInView) return undefined;
+
+    const timer = setTimeout(() => {
+      motionValue.set(direction === "down" ? startValue : value);
+    }, delay * 1000);
+    return () => clearTimeout(timer);
   }, [motionValue, isInView, delay, value, direction, startValue]);
 
   useEffect(

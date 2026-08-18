@@ -8,7 +8,7 @@ const colombo: [number, number] = [79.8612, 6.9271];
 
 export default function ContactMap() {
   return (
-    <Map center={colombo} zoom={11.25} theme="light" attributionControl>
+    <Map center={colombo} zoom={11.25} theme="light" attributionControl={{}}>
       <MapControls showCompass showFullscreen />
       <MapMarker longitude={colombo[0]} latitude={colombo[1]}>
         <MarkerContent>
